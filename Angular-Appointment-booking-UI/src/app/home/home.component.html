@@ -1,0 +1,99 @@
+<mat-toolbar color="primary">
+  <span class="header-profile">Profile</span>
+  <div class="header-profile">
+    <div class="profile-section">
+      <img src="../../assets/sample-profile-picture.png">
+    </div>
+    <div class="profile-one">
+      <span>Dr.Emma</span>
+      <span>Kids Care Clinic</span>
+    </div>
+  </div>
+
+  <div class="spacer"></div>
+  <a class="header-tabone" mat-button routerLink="/appointment" routerLinkActive="active"
+    (click)="btnClick()">Appoinments</a>
+  <a class="header-tabtwo" mat-button>Walk-in</a>
+  <a mat-button routerLink="/">
+    <mat-icon>settings</mat-icon>
+  </a>
+</mat-toolbar>
+
+<div class="page-content">
+  <div>
+    <h2>Home</h2>
+  </div>
+
+  <mat-tab-group #tabGroup>
+    <mat-tab label="Queue">
+      <div class="table-content mat-elevation-z8">
+        <mat-table #table [dataSource]="dataSource">
+
+          <!-- Pateint Column -->
+          <ng-container matColumnDef="Name">
+            <mat-header-cell *matHeaderCellDef> <b>PATIENT</b> </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{ element.name}} </mat-cell>
+          </ng-container>
+
+          <!-- Contact Column -->
+          <ng-container matColumnDef="contact">
+            <mat-header-cell *matHeaderCellDef> <b>CONTACT</b> </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{ element.contact}} </mat-cell>
+          </ng-container>
+
+          <!-- From Time Column -->
+          <ng-container matColumnDef="fromTime">
+            <mat-header-cell *matHeaderCellDef> <b>FROM TIME</b> </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.fromTime}} </mat-cell>
+          </ng-container>
+
+          <!-- To Time Column -->
+          <ng-container matColumnDef="toTime">
+            <mat-header-cell *matHeaderCellDef> <b>TO TIME</b> </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.toTime}} </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+
+      </div>
+    </mat-tab>
+    <mat-tab label="Earlier">
+      <div class="table-content mat-elevation-z8">
+
+        <mat-table #table [dataSource]="dataSource2">
+
+          <!-- Pateint Column -->
+          <ng-container matColumnDef="Name">
+            <mat-header-cell *matHeaderCellDef> <b>PATIENT</b> </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{ element.name}} </mat-cell>
+          </ng-container>
+
+          <!-- Contact Column -->
+          <ng-container matColumnDef="contact">
+            <mat-header-cell *matHeaderCellDef> <b>CONTACT</b></mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{ element.contact}} </mat-cell>
+          </ng-container>
+
+          <!-- From Time Column -->
+          <ng-container matColumnDef="fromTime">
+            <mat-header-cell *matHeaderCellDef><b>FROM TIME</b> </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.fromTime}} </mat-cell>
+          </ng-container>
+
+          <!-- To Time Column -->
+          <ng-container matColumnDef="toTime">
+            <mat-header-cell *matHeaderCellDef> <b>TO TIME</b> </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.toTime}} </mat-cell>
+          </ng-container>
+
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

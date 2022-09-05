@@ -1,0 +1,67 @@
+<h2 class="txt-align-center">APPOINTMENT FORM</h2>
+
+<form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()">
+    <section>
+        <mat-form-field apparence="legacy">
+            <mat-label>Name:</mat-label>
+            <input matInput [(ngModel)]="newObject.name" type="text" formControlName="name" required
+                placeholder="Please enter your name" id="name">
+        </mat-form-field>
+
+        <div *ngIf="appointmentForm.controls['name'].invalid && (appointmentForm.controls['name'].dirty || appointmentForm.controls['name'].touched)"
+            class="error-message">
+            <div *ngIf="appointmentForm.controls['name'].errors">
+                The Name field is required
+            </div>
+        </div>
+
+
+        <mat-form-field apparence="legacy">
+            <mat-label>Contact Number:</mat-label>
+            <input matInput [(ngModel)]="newObject.contact" formControlName="contact" required
+                placeholder="Please enter your contact number" (keypress)="numberOnly($event)" maxlength="10">
+        </mat-form-field>
+        <div *ngIf="appointmentForm.controls['contact'].invalid && (appointmentForm.controls['contact'].dirty || appointmentForm.controls['contact'].touched)"
+            class="error-message">
+            <div *ngIf="appointmentForm.controls['contact'].errors">
+                The Contact Number field is required
+            </div>
+        </div>
+
+        <mat-form-field apparence="legacy">
+            <mat-label>From Time:</mat-label>
+            <mat-select formControlName="fromTime" [(ngModel)]="newObject.fromTime">
+                <mat-option *ngFor="let time of toTime" [value]="time">{{time}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <div *ngIf="appointmentForm.controls['fromTime'].invalid && (appointmentForm.controls['fromTime'].dirty || appointmentForm.controls['fromTime'].touched)"
+            class="error-message">
+            <div *ngIf="appointmentForm.controls['fromTime'].errors">
+                The From Time field is required
+            </div>
+        </div>
+
+        <mat-form-field apparence="legacy">
+            <mat-label>To Time:</mat-label>
+            <mat-select formControlName="toTime" [(ngModel)]="newObject.toTime">
+                <mat-option *ngFor="let time of toTime" [value]="time">{{time}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <div *ngIf="appointmentForm.controls['toTime'].invalid && (appointmentForm.controls['toTime'].dirty || appointmentForm.controls['toTime'].touched)"
+            class="error-message">
+            <div *ngIf="appointmentForm.controls['toTime'].errors">
+                The To Time field is required
+            </div>
+        </div>
+
+
+        <div class="txt-align-center">
+            <button mat-raised-button mat-dialog-close type="submit" color="primary"
+                class="txt-align-center">Submit</button>
+        </div>
+    </section>
+</form>

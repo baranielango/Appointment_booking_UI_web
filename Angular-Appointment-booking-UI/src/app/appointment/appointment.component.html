@@ -1,0 +1,83 @@
+<div class="page-content">
+    <h2> Appointments </h2>
+
+    <div>
+        <div id="leftbox">
+            <mat-card class="inline-calendar-card">
+                <mat-calendar [(selected)]="selected"></mat-calendar>
+            </mat-card>
+        </div>
+
+        <div id="rightbox">
+            <div class="mt-30">
+                <div class="heading-section">
+                    <div>
+                        <h2>Morning</h2>
+                        <span>9:00 AM to 12:00 PM</span>
+                    </div>
+                    <div class="button-section">
+                        <button mat-flat-button class="slot-button" (click)="addSlot()">
+                            <mat-icon>add</mat-icon> Add Slot
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mt-30">
+                    <mat-radio-group *ngFor="let link of morningTimes">
+                        <div>
+                            <mat-radio-button [ngClass]="{'white' : toggle, 'red': !toggle}"
+                                (click)="enableBtnclr()">{{link.time1}}</mat-radio-button>
+                            <mat-radio-button>{{link.time2}}</mat-radio-button>
+                            <mat-radio-button>{{link.time3}}</mat-radio-button>
+                            <mat-radio-button>{{link.time4}}</mat-radio-button>
+                            <mat-radio-button>{{link.time5}}</mat-radio-button>
+                            <mat-radio-button>{{link.time6}}</mat-radio-button>
+                        </div>
+                        <div class="mt-30">
+                            <mat-radio-button>{{link.time1}}</mat-radio-button>
+                            <mat-radio-button>{{link.time2}}</mat-radio-button>
+                            <mat-radio-button>{{link.time3}}</mat-radio-button>
+                            <mat-radio-button>{{link.time4}}</mat-radio-button>
+                            <mat-radio-button>{{link.time5}}</mat-radio-button>
+                            <mat-radio-button>{{link.time6}}</mat-radio-button>
+                        </div>
+                    </mat-radio-group>
+                </div>
+            </div>
+
+            <div class="mt-30">
+                <div class="heading-section">
+                    <div>
+                        <h2>Evening</h2>
+                        <span>5:00 PM to 09:00 PM</span>
+                    </div>
+                    <div class="button-section">
+                        <button mat-flat-button class="slot-button" (click)="addSlot()">
+                            <mat-icon>add</mat-icon>Add Slot
+                        </button>
+                    </div>
+                </div>
+                <div class="mt-30">
+                    <mat-radio-group *ngFor="let link of eveningTimes">
+                        <div>
+                            <mat-radio-button>{{link.time1}}</mat-radio-button>
+                            <mat-radio-button>{{link.time2}}</mat-radio-button>
+                            <mat-radio-button>{{link.time3}}</mat-radio-button>
+                            <mat-radio-button>{{link.time4}}</mat-radio-button>
+                            <mat-radio-button>{{link.time5}}</mat-radio-button>
+                            <mat-radio-button>{{link.time6}}</mat-radio-button>
+                        </div>
+                        <div class="mt-30">
+                            <mat-radio-button>{{link.time1}}</mat-radio-button>
+                            <mat-radio-button>{{link.time2}}</mat-radio-button>
+                            <mat-radio-button>{{link.time3}}</mat-radio-button>
+                            <mat-radio-button>{{link.time4}}</mat-radio-button>
+                            <mat-radio-button>{{link.time5}}</mat-radio-button>
+                            <mat-radio-button>{{link.time6}}</mat-radio-button>
+                        </div>
+                    </mat-radio-group>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
